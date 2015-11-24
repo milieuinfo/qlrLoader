@@ -16,8 +16,8 @@ email=kaywarrie@gmail.com
 
 about=Ontwikkeld voor VMM.
 
-tracker=geen
-repository=geen
+tracker=https://github.com/milieuinfo/qlrLoader/issues
+repository=https://github.com/milieuinfo/qlrLoader
 # End of mandatory metadata
 
 # Recommended items:
