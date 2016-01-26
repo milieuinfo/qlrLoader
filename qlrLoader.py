@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
-from PyQt4.QtCore import *
 from PyQt4.QtGui import QFileDialog, QDialog, QAction, QIcon
-import resources_rc as resources
 from qgis.core import QgsMapLayerRegistry, QgsMapLayer
-import os, sys
+
+from resources_rc import *
 
 class qlrLoader:
     def __init__(self, iface):
@@ -54,10 +53,11 @@ class qlrLoader:
         dialog.setFileMode(QFileDialog.ExistingFiles)
 
         if dialog.exec_() == QDialog.Accepted:
-            self.loadQlrs(dialog.selectedFiles() )
+            self.loadQlrs( dialog.selectedFiles() )
 
-    def loadQlrs(self, qlrList):
+    @staticmethod
+    def loadQlrs(qlrList):
         for qlr in qlrList:
-            lyrs = QgsMapLayer.fromLayerDefinitionFile( qlr )
+            lyrs = QgsMapLayer.fromLayerDefinitionFile(qlr)
             QgsMapLayerRegistry.instance().addMapLayers(lyrs)
 
